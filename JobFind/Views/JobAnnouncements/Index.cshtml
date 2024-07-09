@@ -1,0 +1,48 @@
+﻿
+@model IEnumerable<GetJobVM>
+
+@{
+    ViewData["Title"] = "Job Announcements";
+}
+
+<h1>Job Announcements</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>City</th>
+            <th>Salary</th>
+            <th>Posted Date</th>
+            <th>Category</th>
+            <th>Nature</th>
+            <th>Company</th>
+            <th>Image</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.City</td>
+                <td>@item.Salary</td>
+                <td>@item.PostedDate.ToShortDateString()</td>
+                <td>@item.CategoryName</td>
+                <td>@item.NatureName</td>
+                <td>@item.CompanyName</td>
+                <td><img src="~/jobImages/@item.ImageUrl" alt="@item.Name" style="width: 100px; height: 100px;" /></td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-danger m-1">Updete</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger m-1">Delete</a>
+                    <a asp-action="ViewApplications" asp-route-jobId="@item.Id" class="btn btn-danger m-1">View Applications</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

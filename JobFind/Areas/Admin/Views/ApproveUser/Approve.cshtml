@@ -1,0 +1,51 @@
+﻿@model IEnumerable<JobFind.Models.AppUser>
+
+@{
+    ViewBag.Title = "Kullanıcıları Onayla";
+}
+
+<h2>Kullanıcıları Onayla</h2>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Kullanıcı Adı</th>
+            <th>Email</th>
+            <th>Onay Durumu</th>
+            <th>İşlem</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.UserName</td>
+                <td>@user.Email</td>
+                <td>@user.IsApproved</td>
+                <td>
+                    @if (!user.IsApproved)
+                    {
+                        <form asp-area="Admin" asp-controller="ApproveUser" asp-action="ApproveUser" method="post">
+                            <input type="hidden" name="userId" value="@user.Id" />
+                            <button type="submit" class="btn btn-success">Onayla</button>
+                        </form>
+                    }
+                    else
+                    {
+                        <span>Onaylanmış</span>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,66 @@
+﻿@model List<GetCvVM>
+
+@{
+    ViewData["Title"] = "CV List";
+}
+
+<h2>CV List</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Certificate</th>
+            <th>Graduated At</th>
+            <th>Description</th>
+            <th>Skills</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>City</th>
+            <th>Employer Address</th>
+            <th>Reference Number</th>
+            <th>Profile Image</th>
+            <th>Action</th>
+            <th>Dowland</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var cv in Model)
+        {
+            
+            <tr>
+                <td>@cv.Name</td>
+                <td>@cv.Surname</td>
+                <td>@cv.Certificate</td>
+                <td>@cv.GraduatedAt.ToShortDateString()</td>
+                <td>@cv.Description</td>
+                <td>@cv.Skills1</td>
+                <td>@cv.Skills2</td>
+                <td>@cv.Skills3</td>
+                <td>@cv.Phone</td>
+                <td>@cv.Email</td>
+                <td>@cv.City</td>
+                <td>@cv.EmployerAddress</td>
+                <td>@cv.ReferanceNum</td>
+                <td>
+                    <img src="~/cv/@cv.UrlImage" alt="Profile Image" style="width: 50px; height: 50px;" />
+                </td>
+                <td>
+                    
+                    <a asp-action="Edit" asp-route-id="@cv.Id" class="btn btn-danger m-1">Updete</a>
+                    <a asp-action="Delete" asp-route-id="@cv.Id" class="btn btn-danger m-1">Delete</a>
+
+
+
+                </td>
+                <td>
+                    <a asp-action="GeneratePdf" asp-route-id="@cv.Id" class="btn btn-primary">Download PDF</a>
+                </td>
+            </tr>
+        
+        }
+    </tbody>
+</table>
+
+<a asp-action="Create" class="btn btn-success m-1">Create New Cv</a>

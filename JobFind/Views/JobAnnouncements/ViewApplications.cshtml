@@ -1,0 +1,31 @@
+﻿@model IEnumerable<JobApplication>
+
+@{
+    ViewData["Title"] = "Job Applications";
+}
+
+<h1>Job Applications</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>User</th>
+            <th>CV File</th>
+            <th>Applied Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var application in Model)
+        {
+            <tr>
+                <td>@application.User.UserName</td>
+                <td>@application.CVFileName</td>
+                <td>@application.AppliedDate.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                <td>
+                    <a asp-action="DownloadCV" asp-route-id="@application.Id" class="btn btn-primary m-1">Download CV</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

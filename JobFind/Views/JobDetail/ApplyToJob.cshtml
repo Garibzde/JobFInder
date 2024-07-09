@@ -1,0 +1,16 @@
+﻿@model ApplyToJobVM
+
+<h2>Apply to Job</h2>
+
+@using (Html.BeginForm("ApplyToJob", "JobDetail", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.HiddenFor(model => model.JobId)
+
+    <div class="form-group">
+        <label for="cvFile">CV File</label>
+        <input type="file" name="cvFile" id="cvFile" class="form-control-file" required>
+        <span asp-validation-for="CvFile" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+}

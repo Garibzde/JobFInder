@@ -1,0 +1,187 @@
+﻿@model CreateCvVm
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Modernize Free</title>
+    <link rel="shortcut icon" type="image/png" href="~/admin/images/logos/favicon.png" />
+    <link rel="stylesheet" href="~/admin/css/styles.min.css" />
+</head>
+
+<body>
+    <!--  Body Wrapper -->
+    <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+         data-sidebar-position="fixed" data-header-position="fixed">
+        <div class="position-relative overflow-hidden radial-gradient min-vh-100 d-flex align-items-center justify-content-center">
+            <div class="d-flex align-items-center justify-content-center w-100">
+                <div class="row justify-content-center w-100">
+                    <div class="col-md-8 col-lg-6 col-xxl-3">
+                        <div class="card mb-0">
+                            <div class="card-body">
+                                <a href="./index.html" class="text-nowrap logo-img text-center d-block py-3 w-100">
+                                    <img src="~/assets/img/logo/logo.png" width="180" alt="">
+                                </a>
+
+                                <form asp-action="Create" method="post" enctype="multipart/form-data">
+                                    <div>
+                                        <label asp-for="Name"></label>
+                                        <input asp-for="Name" class="form-control" />
+                                        <span asp-validation-for="Name" class="text-danger"></span>
+                                    </div>
+                                    <div>
+                                        <label asp-for="Surname"></label>
+                                        <input asp-for="Surname" class="form-control" />
+                                        <span asp-validation-for="Surname" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="Uni">Universty</label>
+                                        <select asp-for="Uni" class="form-control" multiple size="5">
+                                            <option value="Azerbaycan Texniki Universiteti">Azerbaycan Texniki Universiteti</option>
+                                            <option value="Baki Dövlet Universiteti">Baki Dövlet Universiteti</option>
+                                            <option value="Azerbaycan Memarliq ve Insaat Universiteti">Azerbaycan Memarliq ve Insaat Universiteti</option>
+                                            <option value="ADA">ADA</option>
+                                            <option value="Azerbaycan Dövlet Neft ve Senaye Universiteti">Azerbaycan Dövlet Neft ve Senaye Universiteti</option>
+                                            <option value="Azerbaycan Tibb Universiteti">Azerbaycan Tibb Universiteti</option>
+                                            <option value="Baki Ali Neft">Baki Ali Neft</option>
+                                            <option value="Xezer Universiteti">Xezer Universiteti</option>
+                                            <option value="Azerbaycan Dövlet Iqtisad Universiteti">Azerbaycan Dövlet Iqtisad Universiteti</option>
+                                            <option value="Baki Muhendislik Universiteti">Baki Muhendislik Universiteti</option>
+                                            <option value="Odlar Yurdu Universiteti">Odlar Yurdu Universiteti</option>
+                                            <option value="Azerbaycan Diller Universiteti">Azerbaycan Diller Universiteti</option>
+                                            <option value="Azerbaycan Universiteti">Azerbaycan Universiteti</option>
+                                            <option value="Azerbaycan Dövlet Ressamliq Akademiyasi">Azerbaycan Dövlet Ressamliq Akademiyasi</option>
+                                            <option value="Baki Avrasiya Universiteti">Baki Avrasiya Universiteti</option>
+                                            <option value="	Azerbaycan Texnologiya Universiteti">AD	Azerbaycan Texnologiya UniversitetiA</option>
+                                            <option value="	Azerbaycan Dövlet Medeniyyet ve Incesenet Universiteti">Azerbaycan Dövlet Medeniyyet ve Incesenet Universiteti</option>
+
+                                        </select>
+                                        <span asp-validation-for="Skills1" class="text-danger"></span>
+                                    </div>
+
+                                    <div>
+                                        <label asp-for="GraduatedAt"></label>
+                                        <input asp-for="GraduatedAt" type="date" class="form-control" />
+                                        <span asp-validation-for="GraduatedAt" class="text-danger"></span>
+                                    </div>
+                                    <div>
+                                        <label asp-for="Certificate"></label>
+                                        <input asp-for="Certificate" class="form-control" />
+                                        <span asp-validation-for="Certificate" class="text-danger"></span>
+                                    </div>
+                                    <div>
+                                        <label asp-for="Description">Languages</label>
+                                        <textarea asp-for="Description" class="form-control"></textarea>
+                                        <span asp-validation-for="Description" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="Skills1">Skills</label>
+                                        <select asp-for="Skills1" class="form-control" multiple size="3">
+                                            <option value="Problem-solving">Problem-solving</option>
+                                            <option value="Communication skills">Communication skills</option>
+                                            <option value="Team building">Team building</option>
+                                            <option value="Leadership">Leadership</option>
+                                            <option value="Social media marketing">Social media marketing</option>
+                                            <option value="Knowledge of Software">Knowledge of Software</option>
+                                            <option value="Upselling">Upselling</option>
+                                            <option value="Google Workspace">Google Workspace</option>
+                                            <option value="Management">Management</option>
+                                            <option value="Accounting">Accounting</option>
+                                            <option value="Marketing">Marketing</option>
+                                            <option value="Resourcefulness">Resourcefulness</option>
+                                            <option value="Public Relations">Public Relations</option>
+                                        </select>
+                                        <span asp-validation-for="Skills1" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="Skills2">Skills</label>
+                                        <select asp-for="Skills2" class="form-control" multiple size="3">
+                                            <option value="Problem-solving">Problem-solving</option>
+                                            <option value="Communication skills">Communication skills</option>
+                                            <option value="Team building">Team building</option>
+                                            <option value="Leadership">Leadership</option>
+                                            <option value="Social media marketing">Social media marketing</option>
+                                            <option value="Knowledge of Software">Knowledge of Software</option>
+                                            <option value="Upselling">Upselling</option>
+                                            <option value="Google Workspace">Google Workspace</option>
+                                            <option value="Management">Management</option>
+                                            <option value="Accounting">Accounting</option>
+                                            <option value="Marketing">Marketing</option>
+                                            <option value="Resourcefulness">Resourcefulness</option>
+                                            <option value="Public Relations">Public Relations</option>
+                                        </select>
+                                        <span asp-validation-for="Skills2" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="Skills3">Skills</label>
+                                        <select asp-for="Skills3" class="form-control" multiple size="3">
+                                            <option value="Problem-solving">Problem-solving</option>
+                                            <option value="Communication skills">Communication skills</option>
+                                            <option value="Team building">Team building</option>
+                                            <option value="Leadership">Leadership</option>
+                                            <option value="Social media marketing">Social media marketing</option>
+                                            <option value="Knowledge of Software">Knowledge of Software</option>
+                                            <option value="Upselling">Upselling</option>
+                                            <option value="Google Workspace">Google Workspace</option>
+                                            <option value="Management">Management</option>
+                                            <option value="Accounting">Accounting</option>
+                                            <option value="Marketing">Marketing</option>
+                                            <option value="Resourcefulness">Resourcefulness</option>
+                                            <option value="Public Relations">Public Relations</option>
+                                        </select>
+                                        <span asp-validation-for="Skills3" class="text-danger"></span>
+                                    </div>
+                                    <div>
+                                        <label asp-for="UrlImage"></label>
+                                        <input asp-for="UrlImage" type="file" class="form-control" />
+                                        <span asp-validation-for="UrlImage" class="text-danger"></span>
+                                    </div>
+                                    <div>
+                                        <label asp-for="Phone"></label>
+                                        <input asp-for="Phone" class="form-control" />
+                                        <span asp-validation-for="Phone" class="text-danger"></span>
+                                    </div>
+                                    <div>
+                                        <label asp-for="Email"></label>
+                                        <input asp-for="Email" type="email" class="form-control" />
+                                        <span asp-validation-for="Email" class="text-danger"></span>
+                                    </div>
+                                    <div>
+                                        <label asp-for="City"></label>
+                                        <input asp-for="City" class="form-control" />
+                                        <span asp-validation-for="City" class="text-danger"></span>
+                                    </div>
+                                    <div>
+                                        <label asp-for="EmployerAddress"></label>
+                                        <input asp-for="EmployerAddress" class="form-control" />
+                                        <span asp-validation-for="EmployerAddress" class="text-danger"></span>
+                                    </div>
+                                    <div>
+                                        <label asp-for="ReferanceNum"></label>
+                                        <input asp-for="ReferanceNum" class="form-control" />
+                                        <span asp-validation-for="ReferanceNum" class="text-danger"></span>
+                                    </div>
+                                  
+                                    <div>
+                                        <label asp-for="MoreInformation">MoreInformation</label>
+                                        <textarea asp-for="MoreInformation" class="form-control"></textarea>
+                                        <span asp-validation-for="MoreInformation" class="text-danger"></span>
+                                    </div>
+                                   
+                                    <button type="submit" class="btn btn-primary">Create CV</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    <script src="~/admin/libs/jquery/dist/jquery.min.js"></script>
+    <script src="~/admin/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
